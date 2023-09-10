@@ -1,3 +1,4 @@
+// Hamburger Menu
 const ham = document.querySelector('#hamburger')
 const hamMenu = document.querySelector('#hamburger-menu')
 

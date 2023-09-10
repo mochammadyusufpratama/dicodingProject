@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap');
 
 :root {
-    --colorSecondary: #121212;
     --colorPrimary: #FFF6F0;
+    --colorSecondary: #121212;
+    --colorAccent1: #CC2027;
+}
+
+::-webkit-scrollbar {
+    background: none;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--colorSecondary);
+}
+
+::selection {
+    color: var(--colorPrimary);
+    background: var(--colorSecondary);
 }
 
 * {
@@ -16,6 +31,8 @@
 body {
     background: var(--colorPrimary);
 }
+
+/* Header Section */
 
 header {
     width: 100%;
@@ -103,8 +120,9 @@ header .navbar .container nav ul li a:hover {
     color: var(--colorPrimary);
 }
 
+/* Jumbotron Section */
+
 .jumbotron {
-    height: 90vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -118,11 +136,9 @@ header .navbar .container nav ul li a:hover {
 
 .jumbotron .content article h1 {
     font-weight: 300;
-    font-size: 32px;
 }
 
 .jumbotron .content article p {
-    font-size: 20px;
     font-weight: 200;
     opacity: 90%;
     letter-spacing: 2px;
@@ -137,7 +153,6 @@ header .navbar .container nav ul li a:hover {
     border: 1px solid var(--colorSecondary);
     padding: 5px 15px;
     border-radius: 50px;
-    font-size: 20px;
     margin-top: 50px;
     width: fit-content;
     cursor: pointer;
@@ -146,8 +161,10 @@ header .navbar .container nav ul li a:hover {
 
 .jumbotron .content article button:hover {
     background: var(--colorSecondary);
-    border: 1px solid var(--colorSecondary);
+    border: 1px solid var(--colorPrimary);
     color: var(--colorPrimary);
+    transform: translate(5px, -5px);
+    box-shadow: -5px 5px 0px 0px var(--colorSecondary);
 }
 
 .jumbotron aside {
@@ -157,11 +174,133 @@ header .navbar .container nav ul li a:hover {
 }
 
 .jumbotron aside .position {
-    transform: translate(-292px, -656px) scale(0.6);
     filter: grayscale(80%) contrast(80%);
 }
 
-@media screen and (max-width: 450px) {
+/* About Section */
+
+.about {
+    padding: 100px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about .content article h1 {
+    color: var(--colorPrimary);
+    font-weight: 300;
+    padding: 10px 50px 10px 0px;
+    background: var(--colorAccent1);
+    width: fit-content;
+    letter-spacing: 2px;
+}
+
+.about .content article p {
+    padding-top: 20px;
+    opacity: 80%;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 25px;
+}
+
+.about .content table {
+    border: 1px solid var(--colorSecondary);
+    opacity: 80%;
+    border-collapse: collapse;
+}
+
+.about .content table tr td {
+    border: 1px solid var(--colorSecondary);
+    letter-spacing: 1px;
+    padding: 10px 10px;
+}
+
+.about .content table tr:first-child td:nth-child(2), .about .content table tr:nth-child(7) td:nth-child(2) {
+    width: 30px;
+    text-align: center;
+}
+
+.about .content table tr:nth-child(7) td:nth-child(3) ul {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about .content table tr:nth-child(7) td:nth-child(3) ul li {
+    list-style: none;
+}
+
+.about aside {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+/* Footer Section */
+
+footer .container {
+    border-top: 1px solid var(--colorSecondary);
+}
+
+footer .container h1 {
+    color: var(--colorPrimary);
+    font-weight: 300;
+    padding: 10px 50px 10px 0px;
+    background: var(--colorAccent1);
+    width: fit-content;
+    letter-spacing: 2px;
+}
+
+footer .container .content {
+    display: flex;
+}
+
+footer .container .content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 80%;
+}
+
+footer .container .content ul li {
+    list-style: none;
+    border: 1px solid var(--colorSecondary);
+    transition: all 0.3s ease-in-out;
+}
+
+footer .container .content ul li a {
+    display: flex;
+    gap: 10px;
+    padding: 10px 15px;
+    color: var(--colorSecondary);
+    text-decoration: none;
+    overflow: hidden;
+}
+
+footer .container .content ul li:hover {
+    transform: translate(10px, -10px);
+    box-shadow: -10px 10px 0px 0px var(--colorAccent1);
+}
+
+footer p {
+    padding: 25px;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid var(--colorSecondary);
+    opacity: 80%;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+/* Mobile Breakpoints */
+
+@media screen and (max-width: 320px) {
     
     header .navbar {
         padding: 0px 10px;
@@ -197,6 +336,7 @@ header .navbar .container nav ul li a:hover {
     }
 
     .jumbotron {
+        height: 85vh;
         flex-direction: column;
         align-items: start;
     }
@@ -212,47 +352,335 @@ header .navbar .container nav ul li a:hover {
     }
 
     .jumbotron aside {
-        height: 250px;
+        height: 220px;
         width: 100%;
         overflow: clip;
     }
 
     .jumbotron aside .position {
-        transform: translate(-340px, -656px) scale(0.6);
+        transform: translate(-385px, -715px) scale(0.6);
+    }
+
+    .about {
+        flex-direction: column-reverse;
+    }
+
+    .about .content {
+        padding-right: 0px;
+    }
+
+    .about .content article h1 {
+        font-size: 25px;
+    }
+
+    .about .content article p, .about .content table tr td {
+        font-size: 16px;
+    }
+
+    .about aside {
+        margin-bottom: 30px;
+        overflow: clip;
+        height: 250px;
+    }
+
+    .about aside img {
+        height: 500px;
+        transform: translate(45px, -160px);
+    }
+
+    footer {
+        padding: 0px 10px;
+    }
+
+    footer .container {
+        padding: 50px 0px;
+    }
+
+    footer .container h1 {
+        font-size: 25px;
+    }
+
+    footer .container .content {
+        padding-top: 25px;
+        flex-direction: column;
+        gap:25px;
+        width: 100%:
+    }
+    footer .container .content ul li {
+        border: none;
+        box-shadow: inset 0px 0px 1px 1px black;
+    }
+
+    footer .container .content ul, footer .container .content ul li, footer .container .content ul li a {
+        width: 100%;
+        font-size: 16px;
+        overflow: hidden;
+    }
+
+    footer p {
+        padding: 25px 0px;
+        font-size: 16px;
     }
 
 }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 321px) and (max-width: 375px) {
     
     header .navbar {
-        padding: 0px 50px;
+        padding: 0px 10px;
         font-size: 16px;
     }
 
+    header .navbar .container .menu.hidden {
+        opacity: 0;
+        top: 80px;
+    }
+    
+    header .navbar .container .menu {
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+        transition-delay: 0.3s;
+        position: absolute;
+        right: 10px;
+        top: 91px;
+        background: var(--colorPrimary);
+        padding: 30px 20px;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+
+    header .navbar .container .menu ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
     main {
-        padding: 81px 50px 0px 50px;
+        padding: 81px 10px 0px 10px;
+    }
+
+    .jumbotron {
+        height: 85vh;
+        flex-direction: column;
+        align-items: start;
     }
 
     .jumbotron .content article h1 {
+        font-weight: 300;
         font-size: 25px;
+        padding-top: 30px;
     }
 
     .jumbotron .content article p, .jumbotron .content article button {
         font-size: 16px;
     }
 
+    .jumbotron aside {
+        height: 220px;
+        width: 100%;
+        overflow: clip;
+    }
+
     .jumbotron aside .position {
-        transform: translate(-350px, -656px) scale(0.6);
+        transform: translate(-360px, -715px) scale(0.6);
+    }
+
+    .about {
+        flex-direction: column-reverse;
+    }
+
+    .about .content {
+        padding-right: 0px;
+    }
+
+    .about .content article h1 {
+        font-size: 25px;
+    }
+
+    .about .content article p, .about .content table tr td {
+        font-size: 16px;
+    }
+
+    .about aside {
+        margin-bottom: 30px;
+        overflow: clip;
+        height: 250px;
+    }
+
+    .about aside img {
+        height: 500px;
+        transform: translate(15px, -160px);
+    }
+
+    footer {
+        padding: 0px 10px;
+    }
+
+    footer .container {
+        padding: 50px 0px;
+    }
+
+    footer .container h1 {
+        font-size: 25px;
+    }
+
+    footer .container .content {
+        padding-top: 25px;
+        flex-direction: column;
+        gap:25px;
+        width: 100%:
+    }
+
+    footer .container .content ul li {
+        border: none;
+        box-shadow: inset 0px 0px 1px 1px black;
+    }
+
+    footer .container .content ul, footer .container .content ul li, footer .container .content ul li a {
+        width: 100%;
+        font-size: 16px;
+        overflow: hidden;
+    }
+
+    footer p {
+        padding: 25px 0px;
+        font-size: 16px;
     }
 
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 376px) and (max-width: 450px) {
     
     header .navbar {
-        padding: 0px 100px;
-        font-size: 18px;
+        padding: 0px 10px;
+        font-size: 16px;
+    }
+
+    header .navbar .container .menu.hidden {
+        opacity: 0;
+        top: 80px;
+    }
+    
+    header .navbar .container .menu {
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+        transition-delay: 0.3s;
+        position: absolute;
+        right: 10px;
+        top: 91px;
+        background: var(--colorPrimary);
+        padding: 30px 20px;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+
+    header .navbar .container .menu ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    main {
+        padding: 81px 10px 0px 10px;
+    }
+
+    .jumbotron {
+        height: 85vh;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .jumbotron .content article h1 {
+        font-weight: 300;
+        font-size: 25px;
+        padding-top: 30px;
+    }
+
+    .jumbotron .content article p, .jumbotron .content article button {
+        font-size: 16px;
+    }
+
+    .jumbotron aside {
+        height: 220px;
+        width: 100%;
+        overflow: clip;
+    }
+
+    .jumbotron aside .position {
+        transform: translate(-335px, -715px) scale(0.6);
+    }
+
+    .about {
+        flex-direction: column-reverse;
+    }
+
+    .about .content {
+        padding-right: 0px;
+    }
+
+    .about .content article h1 {
+        font-size: 25px;
+    }
+
+    .about .content article p, .about .content table tr td {
+        font-size: 16px;
+    }
+
+    .about aside {
+        margin-bottom: 30px;
+        overflow: clip;
+        height: 250px;
+    }
+
+    .about aside img {
+        height: 500px;
+        transform: translate(0px, -160px);
+    }
+
+    footer {
+        padding: 0px 10px;
+    }
+
+    footer .container {
+        padding: 50px 0px;
+    }
+
+    footer .container h1 {
+        font-size: 25px;
+    }
+
+    footer .container .content {
+        padding-top: 25px;
+        flex-direction: column;
+        gap:25px;
+        width: 100%:
+    }
+
+    footer .container .content ul li {
+        border: none;
+        box-shadow: inset 0px 0px 1px 1px black;
+    }
+
+    footer .container .content ul, footer .container .content ul li, footer .container .content ul li a {
+        width: 100%;
+        font-size: 16px;
+        overflow: hidden;
+    }
+
+    footer p {
+        padding: 25px 0px;
+        font-size: 16px;
+    }
+
+}
+
+/* Tablet Breakpoint */
+
+@media screen and (min-width: 451px) and (max-width: 999px) {
+    
+    header .navbar {
+        padding: 0px 80px;
+        font-size: 16px;
     }
 
     header .navbar .container .toggle {
@@ -260,12 +688,93 @@ header .navbar .container nav ul li a:hover {
     }
 
     main {
-        padding: 81px 100px 0px 100px;
+        padding: 81px 80px 0px 80px;
+    }
+
+    .jumbotron {
+        height: 85vh;
+    }
+
+    .jumbotron .content article h1 {
+        font-size: 30px;
+    }
+
+    .jumbotron .content article p, .jumbotron .content article button {
+        font-size: 18px;
+    }
+
+    .jumbotron aside {
+        height: 70%;
+        width: 30%;
+        overflow: clip;
+    }
+
+    .jumbotron aside .position {
+        transform: translate(-440px, -590px) scale(0.6);
+    }
+
+    .about {
+        flex-direction: column-reverse;
+    }
+
+    .about .content {
+        padding-right: 0px;
+    }
+
+    .about .content article h1 {
+        font-size: 30px;
+    }
+
+    .about .content article p, .about .content table tr td {
+        font-size: 18px;
+    }
+
+    .about aside {
+        margin-bottom: 30px;
+        overflow: clip;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about aside img {
+        height: 500px;
+        transform: translate(0px, -200px);
+    }
+
+    footer {
+        padding: 0px 80px;
+    }
+
+    footer .container {
+        padding: 50px 0px;
+    }
+
+    footer .container h1 {
+        font-size: 25px;
+    }
+
+    footer .container .content {
+        padding-top: 25px;
+        flex-direction: column;
+        gap:25px;
+        width: 100%:
+    }
+
+    footer .container .content ul, footer .container .content ul li, footer .container .content ul li a {
+        font-size: 18px;
+    }
+
+    footer p {
+        padding: 25px 0px;
+        font-size: 18px;
     }
 
 }
 
-@media screen and (min-width: 1000px) {
+/* Desktop Breakpoints */
+
+@media screen and (min-width: 1000px) and (max-width: 1439px) {
     
     header .navbar {
         padding: 0px 150px;
@@ -280,7 +789,87 @@ header .navbar .container nav ul li a:hover {
         padding: 81px 150px 0px 150px;
     }
 
+    .jumbotron {
+        height: 90vh;
+    }
+
+    .jumbotron .content article h1 {
+        font-size: 32px;
+    }
+
+    .jumbotron .content article p {
+        font-size: 20px;
+    }
+
+    .jumbotron .content article button {
+        font-size: 18px;
+    }
+
+    .jumbotron aside .position {
+        transform: translate(-280px, -635px) scale(0.6);
+    }
+
+    .about .content {
+        padding-right: 50px;
+    }
+
+    .about .content article h1 {
+        font-size: 32px;
+    }
+
+    .about .content article p, .about .content table tr td {
+        font-size: 18px;
+    }
+
+    .about aside {
+        width: 100%;
+        height: 350px;
+        display: flex;
+        justify-content: end;
+        overflow: clip;
+    }
+
+    .about aside img{
+        height: 500px;
+        transform: translate(60px, -125px);
+    }
+
+    footer {
+        padding: 0px 150px;
+    }
+
+    footer .container {
+        padding: 50px 0px;
+    }
+
+    footer .container h1 {
+        font-size: 32px;
+    }
+
+    footer .container .content {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 25px;
+    }
+
+    footer .container .content ul, footer .container .content ul li, footer .container .content ul li a {
+        font-size: 18px;
+    }
+
+    footer .container .content ul li {
+            list-style: none;
+            border: 1px solid var(--colorSecondary);
+        }
+
+    footer p {
+        padding: 25px 0px;
+        font-size: 18px;
+    }
+
 }
+
+/* Large Breakpoints */
 
 @media screen and (min-width: 1440px) {
     
@@ -295,6 +884,84 @@ header .navbar .container nav ul li a:hover {
 
     main {
         padding: 81px 200px 0px 200px;
+    }
+
+    .jumbotron {
+        height: 90vh;
+    }
+
+    .jumbotron .content article h1 {
+        font-size: 32px;
+    }
+
+    .jumbotron .content article p {
+        font-size: 20px;
+    }
+
+    .jumbotron .content article button {
+        font-size: 18px;
+    }
+
+    .jumbotron aside .position {
+        transform: translate(-280px, -635px) scale(0.6);
+    }
+
+    .about .content {
+        padding-right: 50px;
+    }
+
+    .about .content article h1 {
+        font-size: 32px;
+    }
+
+    .about .content article p, .about .content table tr td {
+        font-size: 18px;
+    }
+
+    .about aside {
+        width: 100%;
+        height: 350px;
+        display: flex;
+        justify-content: end;
+        overflow: clip;
+    }
+
+    .about aside img{
+        height: 500px;
+        transform: translate(60px, -125px);
+    }
+
+    footer {
+        padding: 0px 200px;
+    }
+
+    footer .container {
+        padding: 50px 0px;
+    }
+
+    footer .container h1 {
+        font-size: 32px;
+    }
+
+    footer .container .content {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 25px;
+    }
+
+    footer .container .content ul, footer .container .content ul li, footer .container .content ul li a {
+        font-size: 18px;
+    }
+
+    footer .container .content ul li {
+        list-style: none;
+        border: 1px solid var(--colorSecondary);
+    }
+
+    footer p {
+        padding: 25px 0px;
+        font-size: 18px;
     }
 
 }
