@@ -261,6 +261,12 @@ footer .container .content {
     display: flex;
 }
 
+footer .container .content .footerImg {
+    height: 250px;
+    width: 250px;
+    align-self: center;
+}
+
 footer .container .content ul {
     display: flex;
     flex-direction: column;
@@ -406,6 +412,7 @@ footer p {
         gap:25px;
         width: 100%:
     }
+
     footer .container .content ul li {
         border: none;
         box-shadow: inset 0px 0px 1px 1px black;
